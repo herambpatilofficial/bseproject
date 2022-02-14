@@ -25,6 +25,8 @@ def stprice(request):
             yhigh = re.sub(r"()", " ", quote["52weekHigh"],)
             ylow = re.sub(r"()", " ", quote["52weekLow"],)
             marketcap = re.sub(r"()", " ", quote["marketCapFull"],)
+            userdata = user(name=name, bsecode=bsecode)
+            userdata.save()
             
         except:
             currval = 'invalid inputs'
@@ -44,3 +46,4 @@ def stprice(request):
         userdata = user(name=name, bsecode=bsecode)
         userdata.save()
     return render(request, 'stprice.html')
+    
