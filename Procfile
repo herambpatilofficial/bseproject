@@ -1,1 +1,1 @@
-web:gunicorn bseproject.wsgi --log-file
+web:gunicorn bseproject.wsgi --log-file -
