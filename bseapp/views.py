@@ -7,7 +7,7 @@ b = BSE()
 
 
 def getstprice(code):
-    return b.getQuote(code)["currentValue"]
+    return b.getQuote(code)
 
 
 def index(request):
@@ -17,15 +17,15 @@ def stprice(request):
         name = request.POST.get('full-name')
         bsecode = request.POST.get('bsecode')
         try:
-        
-            currval = re.sub(r"()", " ", getstprice(bsecode),)
-            compname = re.sub(r"()", " ", b.getQuote(bsecode)["companyName"],)
-            wtdavg = re.sub(r"()", " ", b.getQuote(bsecode)["weightedAvgPrice"],)
-            indus = re.sub(r"()", " ", b.getQuote(bsecode)["industry"],)
-            yhigh = re.sub(r"()", " ", b.getQuote(bsecode)["52weekHigh"],)
-            ylow = re.sub(r"()", " ", b.getQuote(bsecode)["52weekLow"],)
-            marketcap = re.sub(r"()", " ", b.getQuote(bsecode)["marketCapFull"],)
-            print(wtdavg)
+            quote = b.getQuote(bsecode)        
+            currval = re.sub(r"()", " ", quote["currentValue"],)
+            compname = re.sub(r"()", " ", quote["companyName"],)
+            wtdavg = re.sub(r"()", " ", quote["weightedAvgPrice"],)
+            indus = re.sub(r"()", " ", quote["industry"],)
+            yhigh = re.sub(r"()", " ", quote["52weekHigh"],)
+            ylow = re.sub(r"()", " ", quote["52weekLow"],)
+            marketcap = re.sub(r"()", " ", quote["marketCapFull"],)
+            
         except:
             currval = 'invalid inputs'
             compname = 'invalid inputs'
