@@ -16,7 +16,7 @@ run :
 run : ```pipenv shell```
 
 run : 
-``` pipenv install -r requirements.txt
+``` pipenv install -r requirements.txt```
 
 run :
 ```python manage.py runserver```
